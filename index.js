@@ -27,7 +27,7 @@ const ASSEMBLYAI_API_KEY = "7ff45c08cffb4030bf8f8b3fd7f77903"; // Replace with y
 
 app.use(express.json());
 app.use(cors({
-  origin: '*' // Allow requests from frontend
+  origin: '*', // Allow requests from frontend
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
