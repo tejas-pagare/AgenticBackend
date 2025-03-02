@@ -24,8 +24,7 @@ const PORT = 3000;
 const ASSEMBLYAI_API_KEY = "7ff45c08cffb4030bf8f8b3fd7f77903"; // Replace with your API key
 
 // Set EJS as the view engine
-app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
+
 app.use(express.json());
 app.use(cors({
   origin: '*' // Allow requests from frontend
@@ -33,7 +32,7 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 // Serve static files
-app.use(express.static("public"));
+
 
 
 
@@ -402,8 +401,10 @@ app.post('/summary', async (req, res) => {
 });
 
 
-app.listen(PORT, () => {
-  connectDB();
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+if (process.env.NODE_ENV !== "production") {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+  });
+}
 
