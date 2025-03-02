@@ -235,7 +235,7 @@ async function getTitleFromPython(text) {
 
 // Serve the file upload form
 app.get("/", (req, res) => {
-  res.render("index");
+  res.send("Server is running");
 });
 
 
